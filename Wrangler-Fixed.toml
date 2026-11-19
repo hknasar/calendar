@@ -1,0 +1,9 @@
+name = "calendar"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# FIXED: No [assets] section here.
+# Your old file had [assets] directory = "./public" but that folder
+# does not exist in your repo, so build failed.
+# Use this file alone if you deploy Worker code only.
+# If you want Static Assets, you MUST create the folder first (see below).
