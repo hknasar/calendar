@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender Indonesia 2026 — Libur Nasional, Cuti Bersama & Libur Panjang</title>
+  <meta name="description" content="Kalender Indonesia 2026 lengkap dengan hari libur nasional, cuti bersama, dan libur panjang. Lihat kalender bulanan, unduh PDF, dan rencanakan jadwal Anda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2a43;
+      --blue: #1d6fd8;
+      --blue-light: #e8f1fd;
+      --red: #d7263d;
+      --red-light: #fdecee;
+      --amber: #f59e0b;
+      --amber-light: #fff7e6;
+      --green: #12876f;
+      --ink: #17233a;
+      --muted: #5d6b80;
+      --line: #dfe6ee;
+      --bg: #f6f8fb;
+      --white: #ffffff;
+      --radius: 18px;
+      --shadow: 0 12px 32px rgba(15, 42, 67, .09);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    button { font: inherit; cursor: pointer; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+    }
+
+    .topbar strong { color: #ffd166; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -.4px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), #4d8ff5);
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 22px rgba(29,111,216,.22);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid var(--line);
+      color: var(--navy);
+    }
+
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    .hero {
+      padding: 64px 0 48px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(29,111,216,.13), transparent 32%),
+        radial-gradient(circle at 5% 90%, rgba(215,38,61,.09), transparent 30%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-light);
+      color: var(--blue);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin: 18px 0;
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 560px;
+      margin: 0 0 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      color: var(--navy);
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .preview-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .preview-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .preview-head h3 { margin: 0; font-size: 18px; }
+    .mini-tag {
+      background: var(--red-light);
+      color: var(--red);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mini-calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .mini-calendar .day {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .mini-calendar div {
+      padding: 9px 0;
+      border-radius: 10px;
+      background: #f2f5f9;
+    }
+
+    .mini-calendar .holiday { background: var(--red); color: white; font-weight: 700; }
+    .mini-calendar .cuti { background: var(--red-light); color: var(--red); font-weight: 700; }
+    .mini-calendar .weekend { color: var(--red); font-weight: 700; }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      letter-spacing: -1px;
+      margin: 8px 0 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .month-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(15,42,67,.05);
+    }
+
+    .month-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .month-head h3 { margin: 0; font-size: 18px; }
+    .month-head a {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .calendar .dow {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 10px;
+      padding-bottom: 4px;
+    }
+
+    .calendar span {
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #f3f6fa;
+      font-weight: 600;
+    }
+
+    .calendar .empty { background: transparent; }
+    .calendar .weekend { color: var(--red); }
+    .calendar .holiday { background: var(--red); color: white; }
+    .calendar .cuti { background: var(--red-light); color: var(--red); }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .dot-national { background: var(--red); }
+    .dot-cuti { background: #f4b8bf; }
+    .dot-weekend { background: #c9d3df; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .feature h3 { margin: 0 0 8px; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .longweekend-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .lw-date { font-weight: 800; color: var(--navy); }
+    .lw-name { color: var(--muted); font-size: 14px; }
+    .lw-days {
+      background: var(--amber-light);
+      color: #9a6200;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .holiday-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(15,42,67,.05);
+    }
+
+    .holiday-table th,
+    .holiday-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .holiday-table th {
+      background: var(--navy);
+      color: white;
+      font-size: 13px;
+    }
+
+    .holiday-table tr:last-child td { border-bottom: 0; }
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pill-national { background: var(--red-light); color: var(--red); }
+    .pill-cuti { background: var(--amber-light); color: #9a6200; }
+
+    .cta {
+      background: linear-gradient(120deg, var(--navy), #1c4c7c);
+      color: white;
+      border-radius: 26px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta h2 { margin: 0 0 10px; letter-spacing: -1px; }
+    .cta p { margin: 0; color: #c8d7e7; }
+
+    .cta .btn-primary { background: #ffd166; color: var(--navy); }
+
+    .footer {
+      background: var(--navy);
+      color: #b9c8d8;
+      padding: 42px 0 28px;
+      margin-top: 64px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer h4 { color: white; margin: 0 0 12px; }
+    .footer a { display: block; margin-bottom: 8px; font-size: 14px; }
+    .footer a:hover { color: white; }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.13);
+      margin-top: 28px;
+      padding-top: 18px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+      .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+      .features { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .cta { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .calendar-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .longweekend-card { flex-direction: column; align-items: flex-start; }
+      .holiday-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>📅 Kalender Indonesia 2026 siap membantu perencanaan Anda</span>
+      <span><strong>17 hari libur nasional</strong> • 8 cuti bersama</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">
+        <span class="logo-mark">K</span>
+        KalenderID
+      </a>
+
+      <nav class="nav-links">
+        <a href="#kalender">Kalender 2026</a>
+        <a href="#libur">Hari Libur</a>
+        <a href="#libur-panjang">Libur Panjang</a>
+        <a href="#unduh">Unduh</a>
+        <a href="#blog">Blog</a>
+      </nav>
+
+      <a href="#unduh" class="btn btn-primary">Unduh Kalender</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">✅ Data resmi Indonesia 2026</span>
+          <h1>Kalender Indonesia 2026 lengkap dengan libur nasional & cuti bersama</h1>
+          <p class="lead">
+            Lihat tanggal merah, rencanakan cuti tahunan, atur jadwal kerja dan sekolah,
+            serta temukan libur panjang 2026 dengan lebih mudah.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#kalender" class="btn btn-primary">Lihat Kalender 2026</a>
+            <a href="#libur-panjang" class="btn btn-ghost">Cek Libur Panjang</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><strong>365</strong><span>Hari dalam 2026</span></div>
+            <div class="stat"><strong>17</strong><span>Hari libur nasional</span></div>
+            <div class="stat"><strong>8</strong><span>Hari cuti bersama</span></div>
+          </div>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-head">
+            <h3>Januari 2026</h3>
+            <span class="mini-tag">2 hari libur</span>
+          </div>
+
+          <div class="mini-calendar" id="miniCalendar"></div>
+
+          <div class="legend">
+            <span><span class="dot dot-national"></span>Libur nasional</span>
+            <span><span class="dot dot-cuti"></span>Cuti bersama</span>
+            <span><span class="dot dot-weekend"></span>Akhir pekan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kalender">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">Kalender tahunan</span>
+          <h2>Kalender 2026 Indonesia</h2>
+          <p>
+            Pilih bulan untuk melihat kalender lengkap, tanggal merah, cuti bersama,
+            dan informasi perencanaan bulanan.
+          </p>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <div class="legend">
+          <span><span class="dot dot-national"></span>Hari libur nasional</span>
+          <span><span class="dot dot-cuti"></span>Cuti bersama</span>
+          <span><span class="dot dot-weekend"></span>Sabtu & Minggu</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">Fitur unggulan</span>
+          <h2>Semua yang Anda butuhkan untuk merencanakan 2026</h2>
+          <p>KalenderID dirancang agar informasi tanggal penting mudah ditemukan dan langsung dapat digunakan.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">🗓️</div>
+            <h3>Kalender 12 Bulan</h3>
+            <p>Lihat seluruh bulan 2026 dalam tampilan yang rapi dan mudah dipahami.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🇮🇩</div>
+            <h3>Tanggal Merah</h3>
+            <p>Hari libur nasional dan cuti bersama ditandai dengan jelas di kalender.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🏖️</div>
+            <h3>Libur Panjang</h3>
+            <p>Temukan rangkaian hari libur dan akhir pekan untuk merencanakan perjalanan.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">📥</div>
+            <h3>Unduh & Cetak</h3>
+            <p>Simpan kalender dalam format PDF atau gambar untuk dicetak dan dibagikan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="libur-panjang">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">Perencanaan cuti</span>
+          <h2>Libur panjang 2026</h2>
+          <p>Gunakan periode berikut untuk merencanakan liburan keluarga, perjalanan, atau istirahat.</p>
+        </div>
+
+        <div id="longWeekends"></div>
+      </div>
+    </section>
+
+    <section class="section" id="libur">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">Referensi resmi</span>
+          <h2>Daftar hari libur nasional & cuti bersama 2026</h2>
+          <p>Gunakan daftar ini untuk menyusun jadwal kerja, sekolah, pengiriman, dan kegiatan keluarga.</p>
+        </div>
+
+        <table class="holiday-table">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Hari</th>
+              <th>Nama hari libur</th>
+              <th>Jenis</th>
+            </tr>
+          </thead>
+          <tbody id="holidayTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="unduh">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Unduh kalender 2026 siap cetak</h2>
+            <p>Pilih format PDF, gambar, atau file kalender digital untuk perangkat Anda.</p>
+          </div>
+          <a href="#" class="btn btn-primary">Unduh Sekarang</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">Panduan & artikel</span>
+          <h2>Artikel perencanaan terbaru</h2>
+          <p>Temukan tips mengatur cuti, libur panjang, keuangan, sekolah, dan kegiatan keluarga.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">✈️</div>
+            <h3>Libur Panjang 2026</h3>
+            <p>Panduan memilih tanggal liburan dan mengatur cuti tahunan.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🌙</div>
+            <h3>Kalender Hijriah 2026</h3>
+            <p>Tanggal Ramadan, Idulfitri, Iduladha, dan hari penting Islam.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🎒</div>
+            <h3>Kalender Sekolah</h3>
+            <p>Rencanakan kegiatan belajar, ujian, dan libur sekolah.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">💼</div>
+            <h3>Kalender Kerja</h3>
+            <p>Atur rapat, tenggat proyek, cuti, dan jadwal tim dengan lebih teratur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:white; margin-bottom:14px;">
+            <span class="logo-mark">K</span>
+            KalenderID
+          </div>
+          <p>
+            Kalender Indonesia untuk perencanaan pribadi, sekolah, kerja, dan keluarga.
+            Menyajikan tanggal penting, libur nasional, cuti bersama, dan panduan perencanaan.
+          </p>
+        </div>
+
+        <div>
+          <h4>Kalender</h4>
+          <a href="#kalender">Kalender 2026</a>
+          <a href="#libur">Hari Libur 2026</a>
+          <a href="#libur-panjang">Libur Panjang</a>
+          <a href="#unduh">Unduh Kalender</a>
+        </div>
+
+        <div>
+          <h4>Informasi</h4>
+          <a href="#">Tentang Kami</a>
+          <a href="#">Kebijakan Privasi</a>
+          <a href="#">Kontak</a>
+          <a href="#blog">Blog</a>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 KalenderID. Semua hak dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const monthNames = [
+      "Januari","Februari","Maret","April","Mei","Juni",
+      "Juli","Agustus","September","Oktober","November","Desember"
+    ];
+
+    const holidays = {
+      "2026-01-01": { name: "Tahun Baru Masehi", type: "national" },
+      "2026-01-16": { name: "Isra Mikraj Nabi Muhammad SAW", type: "national" },
+      "2026-02-16": { name: "Cuti Tahun Baru Imlek", type: "cuti" },
+      "2026-02-17": { name: "Tahun Baru Imlek", type: "national" },
+      "2026-03-18": { name: "Cuti Nyepi", type: "cuti" },
+      "2026-03-19": { name: "Nyepi", type: "national" },
+      "2026-03-20": { name: "Cuti Idulfitri", type: "cuti" },
+      "2026-03-21": { name: "Idulfitri", type: "national" },
+      "2026-03-22": { name: "Idulfitri", type: "national" },
+      "2026-03-23": { name: "Cuti Idulfitri", type: "cuti" },
+      "2026-03-24": { name: "Cuti Idulfitri", type: "cuti" },
+      "2026-04-03": { name: "Wafat Yesus Kristus", type: "national" },
+      "2026-05-01": { name: "Hari Buruh Internasional", type: "national" },
+      "2026-05-14": { name: "Kenaikan Yesus Kristus", type: "national" },
+      "2026-05-15": { name: "Cuti Kenaikan Yesus Kristus", type: "cuti" },
+      "2026-05-27": { name: "Iduladha", type: "national" },
+      "2026-05-28": { name: "Cuti Iduladha", type: "cuti" },
+      "2026-05-31": { name: "Hari Raya Waisak", type: "national" },
+      "2026-06-01": { name: "Hari Lahir Pancasila", type: "national" },
+      "2026-06-16": { name: "Tahun Baru Islam", type: "national" },
+      "2026-08-17": { name: "Hari Kemerdekaan RI", type: "national" },
+      "2026-08-25": { name: "Maulid Nabi Muhammad SAW", type: "national" },
+      "2026-12-24": { name: "Cuti Hari Raya Natal", type: "cuti" },
+      "2026-12-25": { name: "Hari Raya Natal", type: "national" }
+    };
+
+    const longWeekends = [
+      { date: "16–18 Januari 2026", days: 3, name: "Isra Mikraj Nabi Muhammad SAW" },
+      { date: "14–17 Februari 2026", days: 4, name: "Tahun Baru Imlek" },
+      { date: "18–24 Maret 2026", days: 7, name: "Nyepi & Idulfitri" },
+      { date: "3–5 April 2026", days: 3, name: "Wafat Yesus Kristus & Paskah" },
+      { date: "1–3 Mei 2026", days: 3, name: "Hari Buruh Internasional" },
+      { date: "14–17 Mei 2026", days: 4, name: "Kenaikan Yesus Kristus" },
+      { date: "27–28 Mei 2026", days: 2, name: "Iduladha" },
+      { date: "30 Mei–1 Juni 2026", days: 3, name: "Waisak & Hari Lahir Pancasila" },
+      { date: "15–17 Agustus 2026", days: 3, name: "Hari Kemerdekaan RI" },
+      { date: "24–27 Desember 2026", days: 4, name: "Hari Raya Natal" }
+    ];
+
+    function dateKey(year, month, day) {
+      return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    }
+
+    function buildMonth(year, month) {
+      const firstDay = new Date(year, month, 1);
+      const totalDays = new Date(year, month + 1, 0).getDate();
+      const startColumn = firstDay.getDay();
+      const cells = [];
+
+      for (let i = 0; i < startColumn; i++) {
+        cells.push('<span class="empty"></span>');
+      }
+
+      for (let day = 1; day <= totalDays; day++) {
+        const key = dateKey(year, month, day);
+        const weekday = new Date(year, month, day).getDay();
+        const holiday = holidays[key];
+        let className = "";
+
+        if (holiday?.type === "national") className = "holiday";
+        else if (holiday?.type === "cuti") className = "cuti";
+        else if (weekday === 0 || weekday === 6) className = "weekend";
+
+        cells.push(`<span class="${className}">${day}</span>`);
+      }
+
+      return cells.join("");
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById("calendarGrid");
+
+      monthNames.forEach((month, index) => {
+        const card = document.createElement("article");
+        card.className = "month-card";
+
+        card.innerHTML = `
+          <div class="month-head">
+            <h3>${month} 2026</h3>
+            <a href="#">Lihat detail</a>
+          </div>
+          <div class="calendar">
+            <span class="dow">Min</span>
+            <span class="dow">Sen</span>
+            <span class="dow">Sel</span>
+            <span class="dow">Rab</span>
+            <span class="dow">Kam</span>
+            <span class="dow">Jum</span>
+            <span class="dow">Sab</span>
+            ${buildMonth(2026, index)}
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function renderMiniCalendar() {
+      const mini = document.getElementById("miniCalendar");
+      mini.innerHTML = `
+        <span class="day">Min</span><span class="day">Sen</span><span class="day">Sel</span>
+        <span class="day">Rab</span><span class="day">Kam</span><span class="day">Jum</span><span class="day">Sab</span>
+        ${buildMonth(2026, 0)}
+      `;
+    }
+
+    function renderLongWeekends() {
+      const container = document.getElementById("longWeekends");
+
+      longWeekends.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "longweekend-card";
+        row.innerHTML = `
+          <div>
+            <div class="lw-date">${item.date}</div>
+            <div class="lw-name">${item.name}</div>
+          </div>
+          <div class="lw-days">${item.days} hari</div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function renderHolidayTable() {
+      const tbody = document.getElementById("holidayTable");
+      const sorted = Object.entries(holidays).sort((a, b) => new Date(a[0]) - new Date(b[0]));
+
+      sorted.forEach(([key, value]) => {
+        const date = new Date(key);
+        const dayName = date.toLocaleDateString("id-ID", { weekday: "long" });
+        const dateLabel = date.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+        const type = value.type === "national" ? "Libur Nasional" : "Cuti Bersama";
+        const pill = value.type === "national" ? "pill-national" : "pill-cuti";
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${dateLabel}</td>
+          <td>${dayName}</td>
+          <td>${value.name}</td>
+          <td><span class="pill ${pill}">${type}</span></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    renderMiniCalendar();
+    renderCalendar();
+    renderLongWeekends();
+    renderHolidayTable();
+  </script>
+</body>
+</html>
