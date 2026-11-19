@@ -1,0 +1,11 @@
+name = "calendar"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# IMPORTANT: This one line fixes "cannot show each url" for SPA
+# It tells Cloudflare: if a URL like /ramadan-calendar-2026/ has no file,
+# serve index.html instead of 404
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
