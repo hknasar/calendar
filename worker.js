@@ -1,6 +1,5 @@
 // Cloudflare Worker - Fix for calendar.haiderkhannasar123.workers.dev
-// Put this file as your Worker (src/index.js or worker.js)
-
+<meta name="google-site-verification" content="OOI3rOFox3TU1keyL6FaW7ZlruR19QyYPi6XxpTCwHo" />
 const SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://calendar.haiderkhannasar123.workers.dev/</loc><lastmod>2026-11-19</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
