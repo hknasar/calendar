@@ -1,0 +1,22 @@
+<!-- PASTE THIS JUST BEFORE </body> IN YOUR MAIN index.html / SITE FILE -->
+<script>
+(function(){
+  var n = new URLSearchParams(location.search).get('article');
+  if(!n) return;
+  // Try a few times because the article list loads after the page
+  var tries = 0;
+  var t = setInterval(function(){
+    tries++;
+    // find all clickable article cards / buttons / links
+    var els = document.querySelectorAll('a,button,[role="button"],[data-article]');
+    // The site shows articles in this order:
+    // 1 Calendar 2026, 2 Indonesia, 3 Islamic, 4 Javanese, 5 School,
+    // 6 Balinese, 7 Sinar Mas, 8 MotoGP, 9 Eid, 10 Ramadan, 11 Calendar 2027
+    // If your cards have that same order, clicking the (n-1)th article card works.
+    // Adjust the selector below to your card class if needed.
+    var cards = document.querySelectorAll('main a, main button');
+    if(cards.length >= n){ clearInterval(t); cards[n-1].click(); window.scrollTo(0,0); }
+    if(tries > 30) clearInterval(t);
+  }, 500);
+})();
+</script>
